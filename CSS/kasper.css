@@ -257,7 +257,7 @@ header .active {
 /* Start Landing */
 
 .landing {
-    background-image: url(/imgs/landing.jpg);
+    background-image: url(../imgs/landing.jpg);
     height: 100vh;
     background-size: cover;
     position: relative;
@@ -402,7 +402,7 @@ header .active {
 /* Start Design */
 
 .design {
-    background-image: url(/imgs/design-features.jpg);
+    background-image: url(../imgs/design-features.jpg);
     position: relative;
     overflow: hidden;
     height: 607px;
@@ -646,7 +646,7 @@ header .active {
 /* Start Statistics */
 
 .statistics {
-    background-image: url(/imgs/stats.png);
+    background-image: url(../imgs/stats.png);
     position: relative;
     padding: var(--mainpaddding) 0;
 }
@@ -884,7 +884,7 @@ header .active {
 .quote {
     text-align: center;
     padding: var(--mainpaddding) 0;
-    background-image: url(/imgs/quote.jpg);
+    background-image: url(../imgs/quote.jpg);
     background-size: cover;
     position: relative;
     color: white;
@@ -1029,7 +1029,7 @@ q::after {
 /* Start Subscribe */
 
 .subscribe {
-    background-image: url(/imgs/subscribe.jpg);
+    background-image: url(../imgs/subscribe.jpg);
     color: white;
     position: relative;
     padding: var(--mainpaddding) 0;
