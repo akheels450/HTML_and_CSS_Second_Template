@@ -5,6 +5,7 @@
     --sectioncolor: #0f748fb3;
     --spacebetween: 40px;
     --mainpaddding: 100px;
+    --main-transition-dur: 0.3s
 }
 
 /* End Global Variables */
@@ -37,6 +38,27 @@ html {
 button,
 input[type="submit"] {
     cursor: pointer;
+    transition-duration: var(--main-transition-dur);
+}
+
+button:hover,
+input[type="submit"]:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+button,
+input {
+    outline: none;
+    border: none;
+}
+
+::placeholder {
+    color: white;
+}
+
+::selection {
+    background-color: #c9f3ff;
+    color: black;
 }
 
 /* Small Screen */
@@ -87,6 +109,11 @@ input[type="submit"] {
     left: 50%;
     transform: translateX(-50%);
     margin-bottom: 40px;
+    transition-duration: var(--main-transition-dur);
+}
+
+.head:hover>span {
+    width: 200px;
 }
 
 .head>span>span {
@@ -100,6 +127,15 @@ input[type="submit"] {
     transform: translateX(-50%);
     border: 2px solid black;
     background-color: white;
+    transition-duration: var(--main-transition-dur);
+}
+
+.head:hover>span>span {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border: 2px solid grey;
+    top: -15px;
 }
 
 .head p {
@@ -135,11 +171,19 @@ input[type="submit"] {
     height: 20px;
     border-radius: 50%;
     border: 1px solid white;
+    transition-duration: var(--main-transition-dur);
+    transition: transform 0.5s;
 }
 
-.shape span:nth-child(2) {
+.shape .active {
     background-color: var(--maincolor);
     border: none;
+}
+
+.shape span:hover {
+    background-color: var(--maincolor);
+    border: none;
+    transform: translateY(-10px);
 }
 
 /* End much use */
@@ -177,6 +221,11 @@ header img {
 
 header .toggle {
     display: none;
+    transition-duration: var(--main-transition-dur);
+}
+
+header .toggle:hover {
+    color: var(--maincolor);
 }
 
 header nav,
@@ -189,7 +238,7 @@ header li {
     padding: 40px 10px;
     position: relative;
     z-index: 2;
-    transition-duration: 0.3s;
+    transition-duration: var(--main-transition-dur);
     color: white;
 }
 
@@ -205,6 +254,7 @@ header .search {
     border-left: 1px solid white;
     height: 30px;
     width: 40px;
+    transition-duration: var(--main-transition-dur);
 }
 
 header .search i {
@@ -214,6 +264,46 @@ header .search i {
     position: absolute;
     right: 0;
     top: 5px;
+    transition-duration: var(--main-transition-dur);
+}
+
+header .search:hover,
+header .search:focus {
+    border-left: 1px solid var(--sectioncolor);
+}
+
+header .search:focus-within {
+    width: 100%;
+    border: none;
+}
+
+header .search:hover i,
+header .search:focus i {
+    color: var(--maincolor);
+}
+
+header form {
+    display: none;
+}
+
+header .search:focus-within form {
+    display: block;
+    margin-right: 40px;
+}
+
+header .search:focus-within form input {
+    background-color: transparent;
+    caret-color: var(--maincolor);
+    outline: none;
+    border: solid 1px var(--sectioncolor);
+    height: 30px;
+    padding-left: 10px;
+    width: 300px;
+    color: white;
+}
+
+header ul:has(~.search:focus-within) {
+    display: none;
 }
 
 header li:hover,
@@ -234,9 +324,11 @@ header .active {
     header ul {
         display: none;
         background-color: rgb(0 0 0/ 50%);
+
     }
 
-    header .toggle:hover+ul {
+    header .toggle:hover+ul,
+    header .toggle:focus+ul {
         display: flex;
         flex-flow: column wrap;
         position: absolute;
@@ -245,7 +337,8 @@ header .active {
         width: 100%;
     }
 
-    header .toggle:hover+ul li {
+    header .toggle:hover+ul li,
+    header .toggle:focus+ul li {
         padding-top: 15px;
         padding-bottom: 15px;
         width: 100%;
@@ -284,6 +377,15 @@ header .active {
     font-weight: 900;
 }
 
+.landing i {
+    transition-duration: var(--main-transition-dur);
+}
+
+.landing i:hover {
+    color: var(--maincolor);
+    transform: translateY(-20px) scale(1.05);
+}
+
 .landing .info {
     position: absolute;
     top: 50%;
@@ -295,6 +397,11 @@ header .active {
     color: white;
     display: flex;
     justify-content: flex-end;
+    transition-duration: 0.5s;
+}
+
+.landing .info:hover {
+    width: 65%;
 }
 
 .landing .text {
@@ -315,6 +422,10 @@ header .active {
 
 @media (max-width: 767px) {
     .landing .info {
+        width: 100%;
+    }
+
+    .landing .info:hover {
         width: 100%;
     }
 
@@ -419,6 +530,12 @@ header .active {
     display: flex;
     justify-content: flex-start;
     background-color: var(--sectioncolor);
+    transition-duration: 0.5s;
+}
+
+.design .info:hover {
+    width: 65%;
+    left: 35%;
 }
 
 .design .text {
@@ -454,6 +571,11 @@ header .active {
         left: 0;
     }
 
+    .design .info:hover {
+        width: 100%;
+        left: 0;
+    }
+
     .design .text {
         width: 100%;
     }
@@ -479,6 +601,12 @@ header .active {
 
 .portofolio li {
     padding: 10px;
+    transition-duration: var(--main-transition-dur);
+}
+
+.portofolio li:hover {
+    color: white;
+    background-color: var(--maincolor);
 }
 
 .portofolio li:first-child {
@@ -505,7 +633,7 @@ header .active {
 
 .portofolio .text {
     opacity: 0;
-    transition-duration: 0.3s;
+    transition-duration: var(--main-transition-dur);
     background-color: white;
     padding: 20px;
     width: 100%;
@@ -541,6 +669,26 @@ header .active {
     outline: none;
     border: none;
     text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+.portofolio button::before {
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: black;
+    height: 100%;
+    transition-duration: var(--main-transition-dur);
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    z-index: -1;
+}
+
+.portofolio button:hover::before {
+    transform: scaleX(1);
 }
 
 /* Large Screen */
@@ -610,6 +758,27 @@ header .active {
     outline: none;
     border: none;
     text-transform: uppercase;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-section button::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: var(--maincolor);
+    transition-duration: calc(var(--main-transition-dur) * 3);
+    z-index: -1;
+}
+
+.video-section button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
 }
 
 /* End Video */
@@ -775,6 +944,10 @@ header .active {
     width: 15px;
 }
 
+.skill .shape>span:hover {
+    transform: translateY(-5px);
+}
+
 .skill .skills .arrow h4 {
     text-align: start;
     font-weight: normal;
@@ -785,72 +958,92 @@ header .active {
     margin: 40px 0;
 }
 
-.skill .arrow span {
+.skill .arrow .prog {
     position: relative;
-    display: block;
     width: 100%;
     height: 30px;
     margin: 10px 0;
+    background-color: #dedadc;
 }
 
-.skill .arrow span::before {
+.skill .arrow .prog::before {
     content: "";
     position: absolute;
     top: -20px;
-    transform: translateX(-7px);
+    transform: translateY(-20px) translateX(-7px) scale(0);
     border-width: 7px;
-    border-color: black transparent transparent transparent;
+    border-color: transparent transparent transparent transparent;
     border-style: solid;
+    transition-duration: calc(var(--main-transition-dur) * 5);
 }
 
-.skill .arrow span::after {
+.skill .arrow .prog::after {
     position: absolute;
     top: -47px;
-    transform: translateX(-20px);
-    background-color: black;
+    transform: translateX(-20px) scale(0);
+    background-color: transparent;
     border-radius: 6px;
     width: 40px;
     color: white;
+    transition-duration: calc(var(--main-transition-dur) * 5);
 }
 
-.skill .arrow:first-of-type span,
-.skill .arrow:last-of-type span {
-    background-image: linear-gradient(to right, var(--maincolor) 90%, #dedadc 90%);
+.skill:hover .prog::before {
+    transform: translateY(0) translateX(-7px) scale(1);
+    border-color: black transparent transparent transparent;
 }
 
-.skill .arrow:first-of-type span::before,
-.skill .arrow:last-of-type span::before {
+.skill:hover .prog::after {
+    transform: translateX(-20px) scale(1);
+    background-color: black;
+}
+
+.skill .arrow .prog span {
+    display: block;
+    height: 100%;
+    width: 0;
+    transition-duration: calc(var(--main-transition-dur) * 5);
+    background-color: var(--maincolor);
+}
+
+.skill:hover .arrow:first-of-type .prog span,
+.skill:hover .arrow:last-of-type .prog span {
+    width: var(--value);
+}
+
+.skill .arrow:first-of-type .prog::before,
+.skill .arrow:last-of-type .prog::before {
     left: 90%;
 }
 
-.skill .arrow:first-of-type span::after,
-.skill .arrow:last-of-type span::after {
+.skill .arrow:first-of-type .prog::after,
+.skill .arrow:last-of-type .prog::after {
     content: attr(data-progress);
     left: 90%;
 }
 
-.skill .arrow:nth-of-type(2) span {
-    background-image: linear-gradient(to right, var(--maincolor) 85%, #dedadc 85%);
+.skill:hover .arrow:nth-of-type(2) .prog span {
+    width: var(--value);
 }
 
-.skill .arrow:nth-of-type(2) span::before {
+.skill .arrow:nth-of-type(2) .prog::before {
     left: 85%;
 }
 
-.skill .arrow:nth-of-type(2) span::after {
+.skill .arrow:nth-of-type(2) .prog::after {
     content: attr(data-progress);
     left: 85%;
 }
 
-.skill .arrow:nth-of-type(3) span {
-    background-image: linear-gradient(to right, var(--maincolor) 80%, #dedadc 80%);
+.skill:hover .arrow:nth-of-type(3) .prog span {
+    width: var(--value);
 }
 
-.skill .arrow:nth-of-type(3) span::before {
+.skill .arrow:nth-of-type(3) .prog::before {
     left: 80%;
 }
 
-.skill .arrow:nth-of-type(3) span::after {
+.skill .arrow:nth-of-type(3) .prog::after {
     content: attr(data-progress);
     left: 80%;
 }
@@ -983,6 +1176,11 @@ q::after {
     width: fit-content;
     margin: 0 auto;
     padding: 20px;
+    transition-duration: var(--main-transition-dur);
+}
+
+.pricing li:hover {
+    transform: translateY(-5px);
 }
 
 .pricing li:not(:last-child) {
@@ -995,6 +1193,49 @@ q::after {
     border: solid 1px var(--maincolor);
     width: 100px;
     height: 55px;
+    transition-duration: var(--main-transition-dur);
+    z-index: 1;
+    position: relative;
+}
+
+.pricing .box button:hover {
+    color: white;
+}
+
+.pricing .box button::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    transform: scaleX(0);
+    background-color: var(--maincolor);
+    transition-duration: var(--main-transition-dur);
+    transform-origin: left;
+}
+
+.pricing .box button:hover::before {
+    transform: scaleX(1);
+}
+
+.pricing .box button::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    transform: scaleX(0);
+    background-color: var(--maincolor);
+    transition-duration: var(--main-transition-dur);
+    transform-origin: right;
+}
+
+.pricing .box button:hover::after {
+    transform: scaleX(1);
 }
 
 .pricing .special-contact {
@@ -1011,10 +1252,35 @@ q::after {
     margin: 20px auto;
     background-color: var(--maincolor);
     color: white;
-    border: none;
     outline: none;
     width: 150px;
     height: 50px;
+    z-index: 1;
+    position: relative;
+    border: solid 1px white;
+}
+
+.pricing .special-contact button:hover {
+    color: var(--maincolor);
+    border-color: var(--maincolor);
+}
+
+.pricing .special-contact button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    transform-origin: bottom;
+    background-color: white;
+    transition-duration: var(--main-transition-dur);
+    transform: scaleY(0);
+}
+
+.pricing .special-contact button:hover::before {
+    transform: scaleY(1);
 }
 
 /* Small Screen */
@@ -1050,10 +1316,6 @@ q::after {
     max-width: 100%;
 }
 
-.subscribe ::placeholder {
-    color: white;
-}
-
 .subscribe i {
     margin-left: 20px;
     margin-right: 10px;
@@ -1076,6 +1338,10 @@ q::after {
     text-transform: uppercase;
     height: 58px;
     width: 130px;
+}
+
+.subscribe input:last-of-type:hover {
+    transform: none;
 }
 
 .subscribe p {
@@ -1120,14 +1386,47 @@ q::after {
     border: solid 1px #cccccc;
 }
 
-.contact input[type="submit"] {
+.contact form button {
     background-color: var(--maincolor);
-    width: 180px;
-    height: 60px;
+    align-self: flex-end;
+    margin-bottom: 20px;
     color: white;
     outline: none;
-    border: none;
-    align-self: flex-end;
+    width: 180px;
+    height: 60px;
+    z-index: 1;
+    position: relative;
+    border: solid 1px white;
+    text-transform: uppercase;
+}
+
+.contact form button:hover {
+    transform: translateY(10px) scale(1.05);
+    color: var(--maincolor);
+    border-color: var(--maincolor);
+}
+
+.contact form button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    transform-origin: top;
+    background-color: white;
+    transition-duration: var(--main-transition-dur);
+    transform: scaleY(0);
+}
+
+.contact form button:hover::before {
+    transform: scaleY(1);
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+    color: rgb(186, 182, 182);
 }
 
 .contact .info {

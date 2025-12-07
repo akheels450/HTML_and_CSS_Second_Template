@@ -21,11 +21,11 @@
 
 <body>
     <!-- Start Header -->
-    <header>
+    <header id="home">
         <div class="container">
             <img src="imgs/logo1.png" alt="">
             <nav>
-                <i class="fas fa-bars toggle"></i>
+                <i class="fas fa-bars toggle" tabindex="0"></i>
                 <ul>
                     <li class="active"><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
@@ -34,7 +34,10 @@
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="search">
+                <div class="search" tabindex="0">
+                    <form action="">
+                        <input type="search" name="search" placeholder="Search">
+                    </form>
                     <i class="fas fa-search"></i>
                 </div>
             </nav>
@@ -60,14 +63,14 @@
         <i class="fas fa-angle-right change-background fa-2x"></i>
         <div class="shape">
             <span></span>
-            <span></span>
+            <span class="active"></span>
             <span></span>
         </div>
     </div>
     <!-- End Landing -->
 
     <!-- Start Services -->
-    <div class="services">
+    <div class="services" id="services">
         <div class="head">
             <h2>Services</h2>
             <span><span></span></span>
@@ -144,7 +147,7 @@
     <!-- End Design -->
 
     <!-- Start Portofolio -->
-    <div class="portofolio">
+    <div class="portofolio" id="portofolio">
         <div class="head">
             <h2>Portofolio</h2>
             <span><span></span></span>
@@ -234,7 +237,7 @@
     <!-- End Video -->
 
     <!-- Start About -->
-    <div class="about">
+    <div class="about" id="about">
         <div class="head">
             <h2>About Us</h2>
             <span><span></span></span>
@@ -243,7 +246,7 @@
                 tincidunt.
             </p>
         </div>
-        <img src="/imgs/about.png" alt="taplets">
+        <img src="imgs/about.png" alt="taplets">
     </div>
     <!-- End About -->
 
@@ -322,19 +325,19 @@
                 </p>
                 <div class="arrow">
                     <h4>Adobe</h4>
-                    <span data-progress="90%"></span>
+                    <div class="prog" data-progress="90%"><span style="--value:90%"></span></div>
                 </div>
                 <div class="arrow">
                     <h4>Html & Css</h4>
-                    <span data-progress="85%"></span>
+                    <div class="prog" data-progress="85%"><span style="--value:85%"></span></div>
                 </div>
                 <div class="arrow">
                     <h4>JavaScript</h4>
-                    <span data-progress="80%"></span>
+                    <div class="prog" data-progress="80%"><span style="--value:80%"></span></div>
                 </div>
                 <div class="arrow">
                     <h4>Php</h4>
-                    <span data-progress="90%"></span>
+                    <div class="prog" data-progress="90%"><span style="--value:90%"></span></div>
                 </div>
             </div>
         </div>
@@ -352,7 +355,7 @@
     <!-- End Quote -->
 
     <!-- Start Pricing -->
-    <div class="pricing">
+    <div class="pricing" id="pricing">
         <div class="head">
             <h2>Pricing</h2>
             <span><span></span></span>
@@ -448,7 +451,7 @@
     <!-- End Subscribe -->
 
     <!-- Start Contact -->
-    <div class="contact">
+    <div class="contact" id="contact">
         <div class="head">
             <h2>Contact</h2>
             <span><span></span></span>
@@ -476,7 +479,7 @@
                 <input type="text" placeholder="Your Name" name="name">
                 <input type="email" placeholder="Your Email" name="email">
                 <textarea placeholder="Your Message" name="message" rows="9"></textarea>
-                <input type="submit" value="SEND MESSAGE">
+                <button>send message</button>
             </form>
         </div>
     </div>
